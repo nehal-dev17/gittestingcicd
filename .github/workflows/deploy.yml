@@ -27,13 +27,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AKIATNIODKUMMERJPDCE}}
-          aws-secret-access-key: ${{ secrets.n1WLhklWiFq75vbuj4hyp+k/ckiiAhW3VUwWRZ5I}}
-          aws-region: ${{ secrets.eu-north-1}}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Deploy to S3
-        run: aws s3 sync dist/ s3://${{ secrets.gittestcicd}} --delete
-
-      - name: Add SPA routing (index.html fallback)
-        run: |
-          aws s3 cp s3://${{ secrets.gittestcicd }}/index.html s3://${{ secrets.gittestcicd }}/index.html --acl public-read  
+        run: aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
