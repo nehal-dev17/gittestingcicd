@@ -409,7 +409,7 @@ const ChatPopup = () => {
     setIsGenerating(true);
 
     try {
-      // ✅ Dynamically determine how many questions to request
+      
       const questionCount = numQuestions; 
 
       const payload = {
