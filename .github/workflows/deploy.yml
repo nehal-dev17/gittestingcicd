@@ -33,3 +33,7 @@ jobs:
 
       - name: Deploy to S3
         run: aws s3 sync dist/ s3://${{ secrets.gittestcicd}} --delete
+
+      - name: Add SPA routing (index.html fallback)
+        run: |
+          aws s3 cp s3://${{ secrets.gittestcicd }}/index.html s3://${{ secrets.gittestcicd }}/index.html --acl public-read  
