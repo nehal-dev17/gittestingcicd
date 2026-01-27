@@ -36,5 +36,5 @@ jobs:
 
       - name: Debug secrets
         run: |
-          echo "AWS_ACCESS_KEY_ID length: ${#{{ secrets.AWS_ACCESS_KEY_ID }}}"
           echo "AWS_REGION: ${{ secrets.AWS_REGION }}"
+          echo "S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}"
