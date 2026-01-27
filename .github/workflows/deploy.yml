@@ -33,3 +33,8 @@ jobs:
 
       - name: Deploy to S3
         run: aws s3 sync dist/ s3://${{ secrets.S3_BUCKET_NAME }} --delete
+
+      - name: Debug secrets
+        run: |
+          echo "AWS_ACCESS_KEY_ID length: ${#{{ secrets.AWS_ACCESS_KEY_ID }}}"
+          echo "AWS_REGION: ${{ secrets.AWS_REGION }}"
