@@ -47,7 +47,7 @@ const QuizGenerator = () => {
     try {
       setLoading(true);
       const response = await axios.post(
-        "https://13.51.45.8/api/profile-quiz/generate",
+        "https://lf2evityhh.execute-api.eu-north-1.amazonaws.com/api/profile-quiz/generate",
         {
           user_id: userId,
           profile: profileText,
@@ -73,7 +73,7 @@ const QuizGenerator = () => {
   const handleSubmitQuiz = async (answers, msgIndex) => {
     try {
       const res = await axios.post(
-        "https://13.51.45.8/api/profile-quiz/submit",
+        "https://lf2evityhh.execute-api.eu-north-1.amazonaws.com/api/v1/quiz/submit",
         {
           session_id: sessionId,
           user_id: userId,

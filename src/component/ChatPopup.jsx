@@ -271,8 +271,8 @@ const ChatPopup = () => {
 
       // ✅ Choose endpoint dynamically
       const endpoint = isDifficulty
-        ? "http://16.16.229.196/api/difficulty-quiz/submit"
-        : "http://16.16.229.196/api/profile-quiz/submit";
+        ? "https://lf2evityhh.execute-api.eu-north-1.amazonaws.com/api/difficulty-quiz/submit"
+        : "https://lf2evityhh.execute-api.eu-north-1.amazonaws.com/api/profile-quiz/submit";
 
       const res = await axios.post(endpoint, payload, {
         headers: { "Content-Type": "application/json" },
@@ -312,7 +312,7 @@ const ChatPopup = () => {
       });
 
     } catch (err) {
-      console.error("❌ [Quiz Submit Error]", err.response?.data || err);
+      console.error("[Quiz Submit Error]", err.response?.data || err);
       setMessages((prev) => [
         ...prev,
         {
@@ -375,7 +375,7 @@ const ChatPopup = () => {
       });
 
       const response = await axios.post(
-        "http://16.16.229.196/api/profile-quiz/generate",
+        "https://lf2evityhh.execute-api.eu-north-1.amazonaws.com/api/profile-quiz/generate",
         {
           user_id: userIdFromUrl,
           profile,
@@ -421,7 +421,7 @@ const ChatPopup = () => {
       console.log("Cognitive Quiz Payload:", payload);
 
       const res = await axios.post(
-        "http://16.16.229.196/api/difficulty-quiz/generate",
+        "https://lf2evityhh.execute-api.eu-north-1.amazonaws.com/api/difficulty-quiz/generate",
         payload
       );
 
@@ -447,10 +447,6 @@ const ChatPopup = () => {
     }
   };
 
-
-
-
-
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     localStorage.setItem(`chatMessages_${sessionId}`, JSON.stringify(messages));
@@ -469,11 +465,9 @@ const ChatPopup = () => {
     const [submitted, setSubmitted] = useState(false);
 
     const persistKey = `quiz_submitted_${quiz?.created_at ?? quiz?.id ?? "anon_quiz"}`;
-
     // ✅ when quiz or results come in from backend, sync local answers
     useEffect(() => {
       if (!quiz) return;
-
       // if backend results exist, prefill answers and mark submitted
       if (quiz.results?.length) {
         const restored = {};

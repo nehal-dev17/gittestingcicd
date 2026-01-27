@@ -1,4 +1,11 @@
 
+body, html {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+
 /* === Chat Popup === */
 .chat-popup-section {
   padding: 1rem;
