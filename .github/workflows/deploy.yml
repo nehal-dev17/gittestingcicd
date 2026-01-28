@@ -24,11 +24,6 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Debug secrets
-        run: |
-          echo "AWS_REGION: ${{ secrets.AWS_REGION }}"
-          echo "S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}"
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
