@@ -739,7 +739,7 @@ const ChatPopup = () => {
                 className="suggestion-card"
                 onClick={() => setActiveTab("quizSetup")}
               >
-                <div className="suggestion-text">Generate Profile Quiz</div>
+                <div className="suggestion-text">Generate Profiles Quiz</div>
               </div>
 
               <div
